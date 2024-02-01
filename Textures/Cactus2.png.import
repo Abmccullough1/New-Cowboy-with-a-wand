@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deircdyybhu2o"
-path="res://.godot/imported/IMG_E0637.jpg-eef7ffd189043aef4eb354031ef69cc5.ctex"
+uid="uid://f57ptmbiu7tf"
+path="res://.godot/imported/Cactus2.png-f40e973ed7c4e958c9d764e6d08d0251.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cowboy with a Wand/IMG_E0637.jpg"
-dest_files=["res://.godot/imported/IMG_E0637.jpg-eef7ffd189043aef4eb354031ef69cc5.ctex"]
+source_file="res://Textures/Cactus2.png"
+dest_files=["res://.godot/imported/Cactus2.png-f40e973ed7c4e958c9d764e6d08d0251.ctex"]
 
 [params]
 

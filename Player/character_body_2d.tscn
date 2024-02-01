@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://xqckunj3gk4p"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_0fhkd"]
-[ext_resource type="Texture2D" uid="uid://toh53vwqusqc" path="res://Cowboy with a Wand/cowboizardstand.png" id="2_3jxdb"]
+[ext_resource type="Texture2D" uid="uid://toh53vwqusqc" path="res://Textures/cowboizardstand.png" id="2_3jxdb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_foyrw"]
 animations = [{

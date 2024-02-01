@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhx864v5rlhh5"]
+[gd_scene load_steps=9 format=3 uid="uid://bhx864v5rlhh5"]
 
-[ext_resource type="Texture2D" uid="uid://bll6srtqpqafj" path="res://Cowboy with a Wand/sandsafe.png" id="1_4ucri"]
+[ext_resource type="Texture2D" uid="uid://bll6srtqpqafj" path="res://Textures/sandsafe.png" id="1_4ucri"]
 [ext_resource type="PackedScene" uid="uid://xqckunj3gk4p" path="res://Player/character_body_2d.tscn" id="1_lewqp"]
-[ext_resource type="Texture2D" uid="uid://cfybngxphx14c" path="res://Cowboy with a Wand/fence2.png" id="2_ee3pd"]
+[ext_resource type="Texture2D" uid="uid://cfybngxphx14c" path="res://Textures/fence2.png" id="2_ee3pd"]
+[ext_resource type="Texture2D" uid="uid://oq68vbm4aoie" path="res://Textures/Cactus1.png" id="4_6e8sc"]
+[ext_resource type="Texture2D" uid="uid://f57ptmbiu7tf" path="res://Textures/Cactus2.png" id="5_m36rn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm6d3"]
 texture = ExtResource("1_4ucri")
@@ -130,12 +132,34 @@ sources/0 = SubResource("TileSetAtlasSource_mm6d3")
 sources/1 = SubResource("TileSetAtlasSource_ia4mb")
 
 [node name="Main" type="Node2D"]
+scale = Vector2(10, 10)
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(0, 648)
+position = Vector2(0, 322.8)
 tile_set = SubResource("TileSet_gye7l")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -131066, 0, 0, -131065, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -131056, 0, 0, -131057, 0, 0, -131058, 0, 0, -131059, 0, 0, -131060, 0, 0, -131061, 0, 0, -131062, 0, 0, -131063, 0, 0, -131064, 0, 0, -131067, 0, 0, -131068, 0, 0, -131069, 0, 0, -131070, 0, 0, -131071, 0, 0, -131072, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -196601, 0, 0, -196600, 0, 0, -196599, 0, 0, -196598, 0, 0, -196597, 0, 0, -196596, 0, 0, -196595, 0, 0, -196594, 0, 0, -196593, 0, 0, -196592, 0, 0, -262128, 0, 536870912, -262129, 0, 0, -262130, 0, 0, -262131, 0, 0, -262132, 0, 0, -262133, 0, 0, -262134, 0, 0, -262135, 0, 0, -262136, 0, 0, -262137, 0, 0, -262138, 0, 0, -262139, 0, 0, -262140, 0, 0, -262141, 0, 0, -262142, 0, 0, -262143, 0, 0, -262144, 0, 0, -327680, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -327676, 0, 0, -327675, 0, 0, -327667, 0, 0, -327666, 0, 0, -327665, 0, 0, -327669, 0, 0, -327670, 0, 0, -327671, 0, 0, -327672, 0, 0, -327673, 0, 0, -327674, 0, 0, -327668, 0, 0, -327664, 0, 0, -65519, 0, 536870912, -131055, 0, 536870912, -196591, 0, 536870912, -262127, 0, 536870912, -327663, 0, 536870912)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_lewqp")]
-position = Vector2(284, 232)
+position = Vector2(336, -59.9)
+
+[node name="cactus2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(87.1, -46.4)
+scale = Vector2(1, 0.929688)
+texture = ExtResource("4_6e8sc")
+
+[node name="cactus" type="Sprite2D" parent="."]
+position = Vector2(480, -50.2)
+texture = ExtResource("4_6e8sc")
+
+[node name="cactus pequeño" type="Sprite2D" parent="."]
+position = Vector2(227, -25.3)
+texture = ExtResource("5_m36rn")
+
+[node name="cactus pequeño2" type="Sprite2D" parent="."]
+position = Vector2(506, -24.2)
+texture = ExtResource("5_m36rn")
+
+[node name="-2" type="Camera2D" parent="."]
+position = Vector2(339, -103.4)
