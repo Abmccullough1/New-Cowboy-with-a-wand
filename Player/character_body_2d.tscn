@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://xqckunj3gk4p"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_0fhkd"]
+[ext_resource type="Texture2D" uid="uid://toh53vwqusqc" path="res://Cowboy with a Wand/cowboizardstand.png" id="2_3jxdb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5rn4u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_foyrw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3jxdb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3jxdb")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_0fhkd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_5rn4u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_foyrw")
+animation = &"Run"
