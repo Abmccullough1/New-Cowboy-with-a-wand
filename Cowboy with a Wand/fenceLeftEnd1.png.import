@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cppq38wuux6ci"
-path="res://.godot/imported/Hay.png-a657c0aa541c284879a7025fa92022f0.ctex"
+uid="uid://c02pqyb6kg16s"
+path="res://.godot/imported/fenceLeftEnd1.png-013eb8409544b7dc5d9e9cce576587d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Hay.png"
-dest_files=["res://.godot/imported/Hay.png-a657c0aa541c284879a7025fa92022f0.ctex"]
+source_file="res://Cowboy with a Wand/fenceLeftEnd1.png"
+dest_files=["res://.godot/imported/fenceLeftEnd1.png-013eb8409544b7dc5d9e9cce576587d7.ctex"]
 
 [params]
 
