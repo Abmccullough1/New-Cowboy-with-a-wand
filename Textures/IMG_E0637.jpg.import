@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpylflhrk0308"
-path="res://.godot/imported/fenceLeftEnd2.png-f5a302732ba5e3d436d1dfd040c4dfd1.ctex"
+uid="uid://deircdyybhu2o"
+path="res://.godot/imported/IMG_E0637.jpg-bf7b6e1129ba8ec0d609c18b424855bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cowboy with a Wand/fenceLeftEnd2.png"
-dest_files=["res://.godot/imported/fenceLeftEnd2.png-f5a302732ba5e3d436d1dfd040c4dfd1.ctex"]
+source_file="res://Textures/IMG_E0637.jpg"
+dest_files=["res://.godot/imported/IMG_E0637.jpg-bf7b6e1129ba8ec0d609c18b424855bf.ctex"]
 
 [params]
 
