@@ -110,13 +110,15 @@ animations = [{
 script = ExtResource("1_0fhkd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(475, 273)
+position = Vector2(549, 280)
 shape = SubResource("CapsuleShape2D_5rn4u")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(477, 287)
+position = Vector2(550, 279)
 sprite_frames = SubResource("SpriteFrames_foyrw")
-animation = &"Run"
-frame_progress = 0.99074
+animation = &"Idle"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(547, 286)

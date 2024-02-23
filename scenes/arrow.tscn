@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlbcpjqbp00vs"]
+
+[ext_resource type="Script" path="res://Arrow.gd" id="1_gkfhb"]
+[ext_resource type="Texture2D" uid="uid://cw2tib4vsqe87" path="res://Player/yH2RFW.png" id="2_l7pdn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1xafs"]
+radius = 62.1289
+
+[node name="Arrow" type="Area2D"]
+script = ExtResource("1_gkfhb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
+scale = Vector2(0.648415, 0.621037)
+texture = ExtResource("2_l7pdn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 2)
+shape = SubResource("CircleShape2D_1xafs")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-31, 1)
+scale = Vector2(1.55, 6.95)
