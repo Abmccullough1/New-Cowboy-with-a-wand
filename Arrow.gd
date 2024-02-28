@@ -1,6 +1,6 @@
 extends Area2D
 
-var arrow_speed = 600
+var arrow_speed = 1000
 func _ready():
 	set_as_top_level(true)
 

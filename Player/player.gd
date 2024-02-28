@@ -1,6 +1,7 @@
 extends CharacterBody2D
 var health= 100
-const SPEED = 300.0
+const SPEED = 300
+var invincible = false
 const JUMP_VELOCITY = -400.0
 var wand = true
 var wand_cool_down = true
@@ -12,24 +13,31 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
 	update_health()
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
-	
-	
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_vector("left", "right", "up", "down")
-	if direction:
-		$AnimatedSprite2D.play("Run")
-		velocity.x = direction.x * SPEED
+	if invincible == false:
+		# Add the gravity.
+		if not is_on_floor():
+			velocity.y += gravity * delta
+		
+		
+		# Handle jump.
+		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+			
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		if direction:
+			$AnimatedSprite2D.play("Run")
+			velocity.x = direction.x * SPEED
+		else:
+			$AnimatedSprite2D.play("Idle")
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 	else:
-		$AnimatedSprite2D.play("Idle")
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		if direction:
+			velocity.x = direction.x * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 	if direction.x >0:
@@ -60,17 +68,24 @@ func update_health():
 func take_damage():
 	if health > 0:
 		health = health - 10
-		update_health()
+		$AnimatedSprite2D.play("Invincible")
+		$invincible.start()
+		invincible=true
 		
 
 
-
-
+func death():
+	if health < 0 or health == 0:
+		$AudioStreamPlayer2D.play()
+		
 func _on_area_2d_area_entered(area):
-	var bad_guy_instance = bad_guy.instantiate()
-	if bad_guy_instance:
+	
+	if  area.name == "tumbletweed" and  invincible!=true:
 		take_damage()
-		update_health()
+		
+			
+	death()
+		
 
 
 func _on_area_2d_area_exited(area):
@@ -79,9 +94,15 @@ func _on_area_2d_area_exited(area):
 
 
 func _on_timer_timeout():
-	if health <100:
+	if health <100 and health!=0 or health <0 :
 		health = health + 10
 		if health >100:
 			health = 100
-	if health<=0:
+	elif health<=0:
 		health = 0
+		
+			
+
+
+func _on_invincible_timeout():
+	invincible = false

@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://xqckunj3gk4p"]
+[gd_scene load_steps=21 format=3 uid="uid://xqckunj3gk4p"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_0fhkd"]
 [ext_resource type="Texture2D" uid="uid://drlu7rghl0wr8" path="res://Cowboy with a Wand/cowboizardidle-Sheet.png" id="2_j5dup"]
 [ext_resource type="Texture2D" uid="uid://8k3f7ybku71q" path="res://Cowboy with a Wand/cowboizardwalk-Sheet.png" id="3_6fpi4"]
+[ext_resource type="Texture2D" uid="uid://toh53vwqusqc" path="res://Cowboy with a Wand/cowboizardstand.png" id="3_mdig1"]
+[ext_resource type="AudioStream" uid="uid://boc4s3qp6udtu" path="res://Shadows of Defeat.mp3" id="6_56u6r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5rn4u"]
 radius = 15.0
@@ -57,7 +59,6 @@ atlas = ExtResource("3_6fpi4")
 region = Rect2(372, 0, 124, 124)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_foyrw"]
-resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -87,6 +88,29 @@ animations = [{
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("3_mdig1")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_mdig1")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_mdig1")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"Invincible",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -121,28 +145,39 @@ shape = SubResource("CapsuleShape2D_5rn4u")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(550, 279)
 sprite_frames = SubResource("SpriteFrames_foyrw")
-animation = &"Idle"
+animation = &"Invincible"
+frame_progress = 0.539197
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(547, 286)
+position = Vector2(546, 281)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(550, 278)
+position = Vector2(553, 282)
 shape = SubResource("RectangleShape2D_1vfks")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.949
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(547, 285)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
 [node name="Health" type="ProgressBar" parent="."]
-modulate = Color(0.721569, 0.0352941, 0.0196078, 1)
-self_modulate = Color(0.720836, 0.035057, 0.019433, 1)
-offset_left = 56.0
-offset_top = 544.0
-offset_right = 368.0
-offset_bottom = 596.0
+offset_left = 40.0
+offset_top = -9.0
+offset_right = 371.0
+offset_bottom = 18.0
+
+[node name="invincible" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_56u6r")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="invincible" to="." method="_on_invincible_timeout"]

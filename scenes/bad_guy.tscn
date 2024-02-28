@@ -77,12 +77,12 @@ radius = 51.0098
 [node name="bad_guy" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_hu4qo")
 animation = &"Idle"
-frame_progress = 0.328188
+frame_progress = 0.170526
 script = SubResource("GDScript_4o6c7")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="tumbletweed" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tumbletweed"]
 shape = SubResource("CircleShape2D_c6y31")
 
 [node name="boss_feet" type="CollisionShape2D" parent="."]
