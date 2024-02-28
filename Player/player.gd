@@ -1,17 +1,18 @@
 extends CharacterBody2D
-
-
+var health= 100
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var wand = true
 var wand_cool_down = true
 var arrow = preload("res://scenes/arrow.tscn")
+var bad_guy = preload("res://scenes/bad_guy.tscn")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
+	update_health()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -50,6 +51,31 @@ func _physics_process(delta):
 		add_child(arrow_instance)
 		await get_tree().create_timer(0.4).timeout
 		wand_cool_down = true
+		
+func update_health():
+	var health_bar = $Health
+	health_bar.value = health
+	
 
 
+func _on_timer_timeout():
+	if health <100:
+		health = health + 10
+		if health >100:
+			health = 100
+	if health<=0:
+		health = 0
 
+func take_damage():
+	if health > 0:
+		health = health - 10
+		update_health()
+		
+func _on_area_2d_area_entered(area):
+	var bad_guy_instance = bad_guy.instantiate()
+	if bad_guy_instance:
+		take_damage()
+		update_health()
+
+func _on_area_2d_area_exited(area):
+	$Timer.start()
