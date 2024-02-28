@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://xqckunj3gk4p"]
+[gd_scene load_steps=19 format=3 uid="uid://xqckunj3gk4p"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_0fhkd"]
 [ext_resource type="Texture2D" uid="uid://drlu7rghl0wr8" path="res://Cowboy with a Wand/cowboizardidle-Sheet.png" id="2_j5dup"]
@@ -106,6 +106,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vfks"]
+size = Vector2(46, 124)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_0fhkd")
 
@@ -122,3 +125,24 @@ animation = &"Idle"
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(547, 286)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(550, 278)
+shape = SubResource("RectangleShape2D_1vfks")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.949
+
+[node name="Health" type="ProgressBar" parent="."]
+modulate = Color(0.721569, 0.0352941, 0.0196078, 1)
+self_modulate = Color(0.720836, 0.035057, 0.019433, 1)
+offset_left = 56.0
+offset_top = 544.0
+offset_right = 368.0
+offset_bottom = 596.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

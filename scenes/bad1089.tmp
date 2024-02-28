@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=3 uid="uid://bdiwodd7w6dv8"]
+
+[ext_resource type="Texture2D" uid="uid://dsjd1lh7gk5w5" path="res://TombleWeed-Sheet.png" id="1_4tn24"]
+[ext_resource type="Script" path="res://scenes/bad_guy.gd" id="2_cbua5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4bsy"]
+atlas = ExtResource("1_4tn24")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ncct"]
+atlas = ExtResource("1_4tn24")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrins"]
+atlas = ExtResource("1_4tn24")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76inr"]
+atlas = ExtResource("1_4tn24")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcc67"]
+atlas = ExtResource("1_4tn24")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5l2tt"]
+atlas = ExtResource("1_4tn24")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_374xu"]
+atlas = ExtResource("1_4tn24")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g4mo"]
+atlas = ExtResource("1_4tn24")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hu4qo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4bsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ncct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrins")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76inr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcc67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5l2tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_374xu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g4mo")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c6y31"]
+radius = 68.0074
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xeodo"]
+radius = 51.0098
+
+[node name="bad_guy" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_hu4qo")
+animation = &"Idle"
+frame_progress = 0.0765049
+script = ExtResource("2_cbua5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_c6y31")
+
+[node name="boss_feet" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xeodo")

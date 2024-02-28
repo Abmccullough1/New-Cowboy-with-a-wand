@@ -7,7 +7,6 @@ var wand_cool_down = true
 var arrow = preload("res://scenes/arrow.tscn")
 var bad_guy = preload("res://scenes/bad_guy.tscn")
 @onready var animated_sprite_2d = $AnimatedSprite2D
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
@@ -58,6 +57,27 @@ func update_health():
 	
 
 
+func take_damage():
+	if health > 0:
+		health = health - 10
+		update_health()
+		
+
+
+
+
+func _on_area_2d_area_entered(area):
+	var bad_guy_instance = bad_guy.instantiate()
+	if bad_guy_instance:
+		take_damage()
+		update_health()
+
+
+func _on_area_2d_area_exited(area):
+	$Timer.start()
+	
+
+
 func _on_timer_timeout():
 	if health <100:
 		health = health + 10
@@ -65,17 +85,3 @@ func _on_timer_timeout():
 			health = 100
 	if health<=0:
 		health = 0
-
-func take_damage():
-	if health > 0:
-		health = health - 10
-		update_health()
-		
-func _on_area_2d_area_entered(area):
-	var bad_guy_instance = bad_guy.instantiate()
-	if bad_guy_instance:
-		take_damage()
-		update_health()
-
-func _on_area_2d_area_exited(area):
-	$Timer.start()
