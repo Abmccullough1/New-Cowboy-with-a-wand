@@ -9,10 +9,11 @@ var arrow = preload("res://scenes/arrow.tscn")
 var bad_guy = preload("res://scenes/bad_guy.tscn")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+var mana = 100
 
 func _physics_process(delta):
 	update_health()
+	update_mana_bar()
 	var direction = Input.get_vector("left", "right", "up", "down")
 	if invincible == false:
 		# Add the gravity.
@@ -33,7 +34,8 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("Idle")
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 	else:
-		
+		if not is_on_floor():
+			velocity.y += gravity * delta
 		if direction:
 			velocity.x = direction.x * SPEED
 		else:
@@ -58,26 +60,23 @@ func _physics_process(delta):
 		add_child(arrow_instance)
 		await get_tree().create_timer(0.4).timeout
 		wand_cool_down = true
-		
+	if Input.is_action_just_pressed("heal"):
+		heal()
 func update_health():
 	var health_bar = $Health
-	health_bar.value = health
-	
-
-
+	health_bar.value = health	
+func update_mana_bar():
+	var mana_bar = $Mana
+	mana_bar.value = mana
 func take_damage():
 	if health > 0:
 		health = health - 10
 		$AnimatedSprite2D.play("Invincible")
 		$invincible.start()
 		invincible=true
-		
-
-
 func death():
 	if health < 0 or health == 0:
 		$AudioStreamPlayer2D.play()
-		
 func _on_area_2d_area_entered(area):
 	
 	if  area.name == "tumbletweed" and  invincible!=true:
@@ -85,24 +84,11 @@ func _on_area_2d_area_entered(area):
 		
 			
 	death()
-		
-
-
-func _on_area_2d_area_exited(area):
-	$Timer.start()
-	
-
-
-func _on_timer_timeout():
-	if health <100 and health!=0 or health <0 :
-		health = health + 10
-		if health >100:
-			health = 100
-	elif health<=0:
-		health = 0
-		
-			
-
-
 func _on_invincible_timeout():
 	invincible = false
+func heal():
+	if mana ==25  or mana > 25 and health!=100 or health>100:
+		health = 100
+		mana -=25
+	else:
+		print("no mana")

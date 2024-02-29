@@ -14,10 +14,12 @@ position = Vector2(10, -3)
 scale = Vector2(0.648415, 0.621037)
 texture = ExtResource("2_l7pdn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(47, 1)
-shape = SubResource("RectangleShape2D_8mf03")
-
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(-31, 1)
 scale = Vector2(1.55, 6.95)
+
+[node name="Arrow" type="Area2D" parent="."]
+
+[node name="arrow" type="CollisionShape2D" parent="Arrow"]
+position = Vector2(40, 2)
+shape = SubResource("RectangleShape2D_8mf03")

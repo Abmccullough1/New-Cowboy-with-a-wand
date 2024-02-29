@@ -151,9 +151,9 @@ frame_progress = 0.539197
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(546, 281)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="player" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2(553, 282)
 shape = SubResource("RectangleShape2D_1vfks")
 
@@ -166,10 +166,12 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="Health" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
 offset_left = 40.0
 offset_top = -9.0
 offset_right = 371.0
 offset_bottom = 18.0
+show_percentage = false
 
 [node name="invincible" type="Timer" parent="."]
 wait_time = 1.5
@@ -177,7 +179,13 @@ wait_time = 1.5
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_56u6r")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[node name="Mana" type="ProgressBar" parent="."]
+offset_left = 40.0
+offset_top = 31.0
+offset_right = 258.0
+offset_bottom = 58.0
+
+[connection signal="area_entered" from="player" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="player" to="." method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="invincible" to="." method="_on_invincible_timeout"]
