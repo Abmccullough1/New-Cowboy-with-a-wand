@@ -23,3 +23,5 @@ scale = Vector2(1.55, 6.95)
 [node name="arrow" type="CollisionShape2D" parent="Arrow"]
 position = Vector2(40, 2)
 shape = SubResource("RectangleShape2D_8mf03")
+
+[connection signal="area_entered" from="Arrow" to="." method="_on_arrow_area_entered"]

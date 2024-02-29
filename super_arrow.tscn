@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj7c5twkyk84i"]
+
+[ext_resource type="Script" path="res://Super arrow.gd" id="1_pmfdi"]
+[ext_resource type="Texture2D" uid="uid://3lhxe61laang" path="res://91458-blue-line-hadoken-art-hadouken-free-hd-image.png" id="2_byxm6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8w578"]
+radius = 78.0064
+
+[node name="Super arrow" type="Area2D"]
+script = ExtResource("1_pmfdi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
+scale = Vector2(0.306641, 0.3125)
+texture = ExtResource("2_byxm6")
+
+[node name="super_arrow" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="super_arrow"]
+position = Vector2(8, 5)
+shape = SubResource("CircleShape2D_8w578")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-59, -3)
+scale = Vector2(1, 10.3125)
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

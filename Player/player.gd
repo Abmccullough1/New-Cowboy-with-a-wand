@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -400.0
 var wand = true
 var wand_cool_down = true
 var arrow = preload("res://scenes/arrow.tscn")
+var super_arrow = preload("res://super_arrow.tscn")
 var bad_guy = preload("res://scenes/bad_guy.tscn")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -60,6 +61,17 @@ func _physics_process(delta):
 		add_child(arrow_instance)
 		await get_tree().create_timer(0.4).timeout
 		wand_cool_down = true
+	if Input.is_action_just_pressed("super attack") and wand and wand_cool_down and  mana > 25 or mana == 25:
+		wand_cool_down=false
+		mana -= 25
+		var super_arrow_instance = super_arrow.instantiate()
+		super_arrow_instance.rotation = $Marker2D.rotation
+		super_arrow_instance.global_position = $Marker2D.global_position
+		add_child(super_arrow_instance)
+		await get_tree().create_timer(0.4).timeout
+		wand_cool_down = true
+		$Timer2.start()
+		
 	if Input.is_action_just_pressed("heal"):
 		heal()
 func update_health():
@@ -90,5 +102,20 @@ func heal():
 	if mana ==25  or mana > 25 and health!=100 or health>100:
 		health = 100
 		mana -=25
+		$Timer2.start()
 	else:
 		print("no mana")
+
+		
+		
+		
+
+
+
+
+
+func _on_timer_2_timeout():
+	mana += 10
+	if mana > 100:
+		mana = 100
+
