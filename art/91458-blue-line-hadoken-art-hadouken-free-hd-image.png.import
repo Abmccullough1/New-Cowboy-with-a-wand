@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c02pqyb6kg16s"
-path="res://.godot/imported/fenceLeftEnd1.png-013eb8409544b7dc5d9e9cce576587d7.ctex"
+uid="uid://3lhxe61laang"
+path="res://.godot/imported/91458-blue-line-hadoken-art-hadouken-free-hd-image.png-5e8153ddb8cdaf81bb1662268caad4ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cowboy with a Wand/fenceLeftEnd1.png"
-dest_files=["res://.godot/imported/fenceLeftEnd1.png-013eb8409544b7dc5d9e9cce576587d7.ctex"]
+source_file="res://art/91458-blue-line-hadoken-art-hadouken-free-hd-image.png"
+dest_files=["res://.godot/imported/91458-blue-line-hadoken-art-hadouken-free-hd-image.png-5e8153ddb8cdaf81bb1662268caad4ef.ctex"]
 
 [params]
 

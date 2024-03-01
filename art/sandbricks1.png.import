@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bll6srtqpqafj"
-path="res://.godot/imported/sandsafe.png-5cc4f6846584dcdef489363607a85671.ctex"
+uid="uid://bo8i0ecry342c"
+path="res://.godot/imported/sandbricks1.png-b954e755c2905c6cd7b97d8720c31360.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cowboy with a Wand/sandsafe.png"
-dest_files=["res://.godot/imported/sandsafe.png-5cc4f6846584dcdef489363607a85671.ctex"]
+source_file="res://art/sandbricks1.png"
+dest_files=["res://.godot/imported/sandbricks1.png-b954e755c2905c6cd7b97d8720c31360.ctex"]
 
 [params]
 

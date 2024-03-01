@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://deircdyybhu2o"
-path="res://.godot/imported/IMG_E0637.jpg-eef7ffd189043aef4eb354031ef69cc5.ctex"
+path="res://.godot/imported/IMG_E0637.jpg-8f45da44951ca7dbd811c250eeef970a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cowboy with a Wand/IMG_E0637.jpg"
-dest_files=["res://.godot/imported/IMG_E0637.jpg-eef7ffd189043aef4eb354031ef69cc5.ctex"]
+source_file="res://art/IMG_E0637.jpg"
+dest_files=["res://.godot/imported/IMG_E0637.jpg-8f45da44951ca7dbd811c250eeef970a.ctex"]
 
 [params]
 

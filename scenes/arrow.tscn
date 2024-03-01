@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://dlbcpjqbp00vs"]
 
-[ext_resource type="Script" path="res://Arrow.gd" id="1_gkfhb"]
-[ext_resource type="Texture2D" uid="uid://cw2tib4vsqe87" path="res://Player/yH2RFW.png" id="2_l7pdn"]
+[ext_resource type="Script" path="res://scripts/Arrow.gd" id="1_wsf1q"]
+[ext_resource type="Texture2D" uid="uid://cw2tib4vsqe87" path="res://art/yH2RFW.png" id="2_tqrkl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mf03"]
 size = Vector2(65.75, 37)
 
 [node name="Arrow" type="Area2D"]
-script = ExtResource("1_gkfhb")
+script = ExtResource("1_wsf1q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(10, -3)
 scale = Vector2(0.648415, 0.621037)
-texture = ExtResource("2_l7pdn")
+texture = ExtResource("2_tqrkl")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(-31, 1)

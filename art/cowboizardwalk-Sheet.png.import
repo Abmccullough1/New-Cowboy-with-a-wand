@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://toh53vwqusqc"
-path="res://.godot/imported/cowboizardstand.png-1b0eb9f51834c89b99179d30a13c23df.ctex"
+uid="uid://8k3f7ybku71q"
+path="res://.godot/imported/cowboizardwalk-Sheet.png-6c9c88f4571b6f3adda75ed98d495398.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cowboy with a Wand/cowboizardstand.png"
-dest_files=["res://.godot/imported/cowboizardstand.png-1b0eb9f51834c89b99179d30a13c23df.ctex"]
+source_file="res://art/cowboizardwalk-Sheet.png"
+dest_files=["res://.godot/imported/cowboizardwalk-Sheet.png-6c9c88f4571b6f3adda75ed98d495398.ctex"]
 
 [params]
 

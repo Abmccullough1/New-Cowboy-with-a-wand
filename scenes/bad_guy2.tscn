@@ -1,0 +1,169 @@
+[gd_scene load_steps=23 format=3 uid="uid://cpllcsino2w52"]
+
+[ext_resource type="Script" path="res://scripts/bad_guy2.gd" id="1_1o8cr"]
+[ext_resource type="Texture2D" uid="uid://dsjd1lh7gk5w5" path="res://art/TombleWeed-Sheet.png" id="2_l144m"]
+[ext_resource type="Texture2D" uid="uid://chsrcacy5usxv" path="res://art/TombleWeedDeath-Sheet.png" id="3_13023"]
+[ext_resource type="AudioStream" uid="uid://bypt1rvx2jjbh" path="res://Music/VictoryScreeech.mp3" id="3_mnp8e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_345uv"]
+radius = 77.1038
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysxr1"]
+atlas = ExtResource("2_l144m")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76w5b"]
+atlas = ExtResource("2_l144m")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2mrh"]
+atlas = ExtResource("2_l144m")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgrcw"]
+atlas = ExtResource("2_l144m")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfqtc"]
+atlas = ExtResource("2_l144m")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu1ap"]
+atlas = ExtResource("2_l144m")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buyvv"]
+atlas = ExtResource("2_l144m")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x86b"]
+atlas = ExtResource("2_l144m")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jci7"]
+atlas = ExtResource("3_13023")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ba0bd"]
+atlas = ExtResource("3_13023")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_537bk"]
+atlas = ExtResource("3_13023")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f65j"]
+atlas = ExtResource("3_13023")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svmgp"]
+atlas = ExtResource("3_13023")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrqjv"]
+atlas = ExtResource("3_13023")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5wa3"]
+atlas = ExtResource("3_13023")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyies"]
+atlas = ExtResource("3_13023")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yphbm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysxr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76w5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2mrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgrcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfqtc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu1ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buyvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x86b")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jci7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ba0bd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_537bk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f65j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svmgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrqjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5wa3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyies")
+}],
+"loop": false,
+"name": &"death",
+"speed": 7.0
+}]
+
+[node name="bad_guy" type="CharacterBody2D"]
+script = ExtResource("1_1o8cr")
+
+[node name="tumbletweed" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tumbletweed"]
+shape = SubResource("CircleShape2D_345uv")
+
+[node name="Bosshealth" type="ProgressBar" parent="."]
+offset_left = -112.0
+offset_top = -65.0
+offset_right = 112.0
+offset_bottom = -38.0
+max_value = 500.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 12.894
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 3)
+scale = Vector2(1.34375, 1.19531)
+sprite_frames = SubResource("SpriteFrames_yphbm")
+animation = &"Idle"
+
+[node name="victory" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mnp8e")
+
+[node name="songtimer" type="Timer" parent="."]
+
+[node name="Boss_music" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="area_entered" from="tumbletweed" to="." method="_on_tumbletweed_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

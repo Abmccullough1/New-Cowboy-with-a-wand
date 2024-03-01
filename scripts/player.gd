@@ -2,12 +2,12 @@ extends CharacterBody2D
 var health= 100
 const SPEED = 300
 var invincible = false
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -650.0
 var wand = true
 var wand_cool_down = true
 var arrow = preload("res://scenes/arrow.tscn")
-var super_arrow = preload("res://super_arrow.tscn")
-var bad_guy = preload("res://scenes/bad_guy.tscn")
+var super_arrow = preload("res://scenes/super_arrow.tscn")
+var bad_guy = preload("res://scenes/bad_guy2.tscn")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var mana = 100
@@ -48,7 +48,7 @@ func _physics_process(delta):
 	elif direction.x < 0 :
 		animated_sprite_2d.flip_h = true
 		
-	
+
 	move_and_slide()
 	var mouse_pos = get_global_mouse_position()
 	$Marker2D.look_at(mouse_pos)
@@ -105,14 +105,6 @@ func heal():
 		$Timer2.start()
 	else:
 		print("no mana")
-
-		
-		
-		
-
-
-
-
 
 func _on_timer_2_timeout():
 	mana += 10

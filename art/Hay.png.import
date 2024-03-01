@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cppq38wuux6ci"
-path="res://.godot/imported/Hay.png-08148873307b4ffd7833f26d12849914.ctex"
+path="res://.godot/imported/Hay.png-83872ac23ab6b8fda59450f728e3c598.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cowboy with a Wand/Hay.png"
-dest_files=["res://.godot/imported/Hay.png-08148873307b4ffd7833f26d12849914.ctex"]
+source_file="res://art/Hay.png"
+dest_files=["res://.godot/imported/Hay.png-83872ac23ab6b8fda59450f728e3c598.ctex"]
 
 [params]
 

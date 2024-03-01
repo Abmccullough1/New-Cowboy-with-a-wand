@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsjd1lh7gk5w5"
-path="res://.godot/imported/TombleWeed-Sheet.png-2a46e22ab74b83522e28ad164f3a61e0.ctex"
+uid="uid://b7qv28ieseuhn"
+path="res://.godot/imported/fence1.png-b449bec203eec62615494b07a51b86f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TombleWeed-Sheet.png"
-dest_files=["res://.godot/imported/TombleWeed-Sheet.png-2a46e22ab74b83522e28ad164f3a61e0.ctex"]
+source_file="res://art/fence1.png"
+dest_files=["res://.godot/imported/fence1.png-b449bec203eec62615494b07a51b86f3.ctex"]
 
 [params]
 

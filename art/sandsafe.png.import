@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3lhxe61laang"
-path="res://.godot/imported/91458-blue-line-hadoken-art-hadouken-free-hd-image.png-fe5912e61801e95c8322445c6a9c2eae.ctex"
+uid="uid://bll6srtqpqafj"
+path="res://.godot/imported/sandsafe.png-7398d3323b850b1da4d642ec41e2a3db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://91458-blue-line-hadoken-art-hadouken-free-hd-image.png"
-dest_files=["res://.godot/imported/91458-blue-line-hadoken-art-hadouken-free-hd-image.png-fe5912e61801e95c8322445c6a9c2eae.ctex"]
+source_file="res://art/sandsafe.png"
+dest_files=["res://.godot/imported/sandsafe.png-7398d3323b850b1da4d642ec41e2a3db.ctex"]
 
 [params]
 

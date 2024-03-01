@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo8i0ecry342c"
-path="res://.godot/imported/sandbricks1.png-d72ee0e59aa3ed21c0f26bb5c6a483c2.ctex"
+uid="uid://bpylflhrk0308"
+path="res://.godot/imported/fenceLeftEnd2.png-3b9a695e7ed8e2bc125e5124f6927287.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sandbricks1.png"
-dest_files=["res://.godot/imported/sandbricks1.png-d72ee0e59aa3ed21c0f26bb5c6a483c2.ctex"]
+source_file="res://art/fenceLeftEnd2.png"
+dest_files=["res://.godot/imported/fenceLeftEnd2.png-3b9a695e7ed8e2bc125e5124f6927287.ctex"]
 
 [params]
 

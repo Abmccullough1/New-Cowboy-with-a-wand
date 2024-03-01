@@ -1,10 +1,10 @@
 [gd_scene load_steps=21 format=3 uid="uid://xqckunj3gk4p"]
 
-[ext_resource type="Script" path="res://Player/player.gd" id="1_0fhkd"]
-[ext_resource type="Texture2D" uid="uid://drlu7rghl0wr8" path="res://Cowboy with a Wand/cowboizardidle-Sheet.png" id="2_j5dup"]
-[ext_resource type="Texture2D" uid="uid://8k3f7ybku71q" path="res://Cowboy with a Wand/cowboizardwalk-Sheet.png" id="3_6fpi4"]
-[ext_resource type="Texture2D" uid="uid://toh53vwqusqc" path="res://Cowboy with a Wand/cowboizardstand.png" id="3_mdig1"]
-[ext_resource type="AudioStream" uid="uid://boc4s3qp6udtu" path="res://Shadows of Defeat.mp3" id="6_56u6r"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_0fhkd"]
+[ext_resource type="Texture2D" uid="uid://drlu7rghl0wr8" path="res://art/cowboizardidle-Sheet.png" id="2_j5dup"]
+[ext_resource type="Texture2D" uid="uid://8k3f7ybku71q" path="res://art/cowboizardwalk-Sheet.png" id="3_6fpi4"]
+[ext_resource type="Texture2D" uid="uid://toh53vwqusqc" path="res://art/cowboizardstand.png" id="3_mdig1"]
+[ext_resource type="AudioStream" uid="uid://boc4s3qp6udtu" path="res://Music/Shadows of Defeat.mp3" id="6_56u6r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5rn4u"]
 radius = 15.0
@@ -184,9 +184,10 @@ offset_left = 40.0
 offset_top = 31.0
 offset_right = 258.0
 offset_bottom = 58.0
+show_percentage = false
 
 [node name="Timer2" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 
 [connection signal="area_entered" from="player" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="player" to="." method="_on_area_2d_area_exited"]

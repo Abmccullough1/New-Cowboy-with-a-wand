@@ -1,0 +1,157 @@
+[gd_scene load_steps=19 format=3 uid="uid://c4uhsgrh7y4xh"]
+
+[ext_resource type="Texture2D" uid="uid://drlu7rghl0wr8" path="res://art/cowboizardidle-Sheet.png" id="1_32aqc"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_awwqa"]
+[ext_resource type="Texture2D" uid="uid://8k3f7ybku71q" path="res://art/cowboizardwalk-Sheet.png" id="2_gwjtd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvb8a"]
+atlas = ExtResource("1_32aqc")
+region = Rect2(0, 0, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpmm5"]
+atlas = ExtResource("1_32aqc")
+region = Rect2(124, 0, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_try2f"]
+atlas = ExtResource("1_32aqc")
+region = Rect2(248, 0, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vflms"]
+atlas = ExtResource("1_32aqc")
+region = Rect2(372, 0, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aojsn"]
+atlas = ExtResource("1_32aqc")
+region = Rect2(496, 0, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wocrw"]
+atlas = ExtResource("1_32aqc")
+region = Rect2(620, 0, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqvpm"]
+atlas = ExtResource("1_32aqc")
+region = Rect2(744, 0, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80xs3"]
+atlas = ExtResource("1_32aqc")
+region = Rect2(868, 0, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pax0r"]
+atlas = ExtResource("2_gwjtd")
+region = Rect2(0, 0, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bogys"]
+atlas = ExtResource("2_gwjtd")
+region = Rect2(124, 0, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxba8"]
+atlas = ExtResource("2_gwjtd")
+region = Rect2(248, 0, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2v84"]
+atlas = ExtResource("2_gwjtd")
+region = Rect2(372, 0, 124, 124)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uquq6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvb8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpmm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_try2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vflms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aojsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wocrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqvpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80xs3")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pax0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bogys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxba8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2v84")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l8niw"]
+radius = 20.0
+height = 120.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c17y2"]
+radius = 18.0
+height = 126.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_awwqa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uquq6")
+animation = &"Idle"
+frame_progress = 0.365362
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_l8niw")
+
+[node name="Health" type="ProgressBar" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+offset_left = -458.0
+offset_top = -257.0
+offset_right = -150.0
+offset_bottom = -230.0
+show_percentage = false
+
+[node name="Mana" type="ProgressBar" parent="."]
+offset_left = -453.0
+offset_top = -218.0
+offset_right = -182.0
+offset_bottom = -189.0
+show_percentage = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 3)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="player" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+shape = SubResource("CapsuleShape2D_c17y2")
+
+[node name="invincible" type="Timer" parent="."]
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 5.186
+
+[connection signal="area_entered" from="player" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="invincible" to="." method="_on_invincible_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

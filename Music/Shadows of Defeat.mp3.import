@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://boc4s3qp6udtu"
+path="res://.godot/imported/Shadows of Defeat.mp3-e8b585e5f466b48c3951e0bc02ff571d.mp3str"
+
+[deps]
+
+source_file="res://Music/Shadows of Defeat.mp3"
+dest_files=["res://.godot/imported/Shadows of Defeat.mp3-e8b585e5f466b48c3951e0bc02ff571d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
