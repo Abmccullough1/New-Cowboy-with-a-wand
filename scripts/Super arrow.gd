@@ -11,3 +11,11 @@ func _process(delta):
 
 func _on_visible_on_screen_enabler_2d_screen_exited():
 	queue_free()
+
+
+func _on_super_arrow_area_entered(area):
+	if area.name == "player" or area.name == "Bossrange":
+		pass
+	else:
+		queue_free()
+

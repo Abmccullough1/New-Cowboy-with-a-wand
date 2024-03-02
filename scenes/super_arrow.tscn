@@ -24,4 +24,5 @@ shape = SubResource("CircleShape2D_8w578")
 position = Vector2(-59, -3)
 scale = Vector2(1, 10.3125)
 
+[connection signal="area_entered" from="super_arrow" to="." method="_on_super_arrow_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

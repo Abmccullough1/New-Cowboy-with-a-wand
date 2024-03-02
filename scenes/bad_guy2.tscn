@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://cpllcsino2w52"]
+[gd_scene load_steps=25 format=3 uid="uid://cpllcsino2w52"]
 
 [ext_resource type="Script" path="res://scripts/bad_guy2.gd" id="1_1o8cr"]
 [ext_resource type="Texture2D" uid="uid://dsjd1lh7gk5w5" path="res://art/TombleWeed-Sheet.png" id="2_l144m"]
 [ext_resource type="Texture2D" uid="uid://chsrcacy5usxv" path="res://art/TombleWeedDeath-Sheet.png" id="3_13023"]
 [ext_resource type="AudioStream" uid="uid://bypt1rvx2jjbh" path="res://Music/VictoryScreeech.mp3" id="3_mnp8e"]
+[ext_resource type="AudioStream" uid="uid://sgrlcot1jrqn" path="res://Music/TumbleBoss.mp3" id="5_yjvce"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_345uv"]
 radius = 77.1038
@@ -133,6 +134,9 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_c57ef"]
+radius = 562.275
+
 [node name="bad_guy" type="CharacterBody2D"]
 script = ExtResource("1_1o8cr")
 
@@ -164,6 +168,14 @@ stream = ExtResource("3_mnp8e")
 [node name="songtimer" type="Timer" parent="."]
 
 [node name="Boss_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_yjvce")
+
+[node name="Bossrange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bossrange"]
+shape = SubResource("CircleShape2D_c57ef")
 
 [connection signal="area_entered" from="tumbletweed" to="." method="_on_tumbletweed_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Bossrange" to="." method="_on_boss_range_area_entered"]
+[connection signal="area_exited" from="Bossrange" to="." method="_on_boss_range_area_exited"]

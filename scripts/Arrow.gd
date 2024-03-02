@@ -19,7 +19,7 @@ func _on_visible_on_screen_enabler_2d_screen_exited():
 
 
 func _on_arrow_area_entered(area):
-	if area.name == "player":
+	if area.name == "player" or area.name == "Bossrange":
 		pass
 	else:
 		queue_free()
