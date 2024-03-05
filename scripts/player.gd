@@ -32,15 +32,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			
-			print(velocity.y)
-			#if velocity.y == 0:
-				#$AnimatedSprite2D.play("jump")
-			#elif velocity.y >0:
-				#$AnimatedSprite2D.play("jump_down")
-			#elif velocity.y < 0:
-				#$AnimatedSprite2D.play("jump_up")
-		# Get the input direction and handle the movement/deceleration.
-		# As good practice, you should replace UI actions with custom gameplay actions.
+			
 		if animation_lock == false:
 			if direction:
 				$AnimatedSprite2D.play("Run")
@@ -78,7 +70,7 @@ func _physics_process(delta):
 		add_child(arrow_instance)
 		await get_tree().create_timer(0.4).timeout
 		wand_cool_down = true
-	if Input.is_action_just_pressed("super attack") and wand and wand_cool_down and  mana > 25 or mana == 25:
+	if Input.is_action_just_pressed("super attack") and wand and wand_cool_down and  mana >= 25 :
 		wand_cool_down=false
 		mana -= 25
 		var super_arrow_instance = super_arrow.instantiate()
@@ -93,7 +85,6 @@ func _physics_process(delta):
 		heal()
 	if Input.is_action_just_pressed("mana"):
 		health_for_mana()
-		
 		
 		
 		
