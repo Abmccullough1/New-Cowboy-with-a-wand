@@ -25,7 +25,7 @@ func _physics_process(delta):
 		
 			print("this is it: " + str(attack))
 		
-		position += (player.position - position)/speed
+  		position += (player.position - position)/speed
 		
 	if not is_on_floor():
 		velocity.y += gravity * delta
